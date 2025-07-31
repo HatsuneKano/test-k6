@@ -1,0 +1,11 @@
+{
+  "name": "k6-nopcommerce-test",
+  "version": "1.0.0",
+  "description": "K6 performance testing for Nopcommerce",
+  "scripts": {
+    "test": "k6 run test.js"
+  },
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}
