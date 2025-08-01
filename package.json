@@ -1,9 +1,15 @@
 {
-  "name": "k6-nopcommerce-test",
+  "name": "k6-performance-tests",
   "version": "1.0.0",
-  "description": "K6 performance testing for Nopcommerce",
+  "description": "K6 performance testing for Nopcommerce and Pizza applications",
   "scripts": {
-    "test": "k6 run test.js"
+    "test:registration": "k6 run --env SCENARIO=registration_test --env K6_SCENARIO=registration_test final-1-nopcommerce.js",
+    "test:shopping": "k6 run --env SCENARIO=shopping_test --env K6_SCENARIO=shopping_test final-1-nopcommerce.js",
+    "test:createUser": "k6 run --env SCENARIO=create_user_test --env K6_SCENARIO=create_user_test final-2-pizza.js",
+    "test:ratePizza": "k6 run --env SCENARIO=rate_pizza_test --env K6_SCENARIO=rate_pizza_test final-2-pizza.js",
+    "test:final1": "k6 run --env SCENARIO=registration_test --env K6_SCENARIO=registration_test final-1-nopcommerce.js && k6 run --env SCENARIO=shopping_test --env K6_SCENARIO=shopping_test final-1-nopcommerce.js",
+    "test:final2": "k6 run --env SCENARIO=create_user_test --env K6_SCENARIO=create_user_test final-2-pizza.js && k6 run --env SCENARIO=rate_pizza_test --env K6_SCENARIO=rate_pizza_test final-2-pizza.js",
+    "test:all": "npm run test:final1 && npm run test:final2"
   },
   "dependencies": {
     "k6": "^0.0.0"
